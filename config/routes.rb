@@ -4,7 +4,7 @@ Spree::Core::Engine.add_routes do
   get '/paypal/cancel', :to => "paypal#cancel", :as => :cancel_paypal
   get '/paypal/notify', :to => "paypal#notify", :as => :notify_paypal
 
-  namespace :admin do
+  namespace :admin, path: Spree.admin_path do
     # Using :only here so it doesn't redraw those routes
     resources :orders, :only => [] do
       resources :payments, :only => [] do
